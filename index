@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Scholar Poll</title>
+</head>
+
+<body>
+
+<h1>Scholar Poll</h1>
+
+<p>How many hours do you study daily?</p>
+
+<label>
+<input type="radio" name="poll" value="1"> 1 Hour
+</label><br>
+
+<label>
+<input type="radio" name="poll" value="2"> 2 Hours
+</label><br>
+
+<label>
+<input type="radio" name="poll" value="3"> 3 Hours
+</label><br>
+
+<label>
+<input type="radio" name="poll" value="4"> 4+ Hours
+</label><br><br>
+
+<button onclick="vote()">Submit Vote</button>
+
+<h2 id="result"></h2>
+
+<script>
+
+let votes = {
+1:0,
+2:0,
+3:0,
+4:0
+};
+
+function vote(){
+
+let choice = document.querySelector('input[name="poll"]:checked');
+
+if(!choice){
+alert("Please select an option");
+return;
+}
+
+votes[choice.value]++;
+
+document.getElementById("result").innerHTML =
+"Votes<br>" +
+"1 Hour: " + votes[1] + "<br>" +
+"2 Hours: " + votes[2] + "<br>" +
+"3 Hours: " + votes[3] + "<br>" +
+"4+ Hours: " + votes[4];
+
+}
+
+</script>
+
+</body>
+
+</html>
